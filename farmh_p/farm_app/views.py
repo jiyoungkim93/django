@@ -4,7 +4,7 @@ from django.shortcuts import render
 # from django.http import HttpResponse
 
 from .models import  Users, Comments, Crops, Deeplearnings, Dronerunnings,Farmdiaries, Pestinfos, Ptcinfos   # 모델 불러오기
-
+from django.http import HttpResponse
 # Create your views here.
 
 # 메인페이지 출력 / css폴더에 있는 html연결
@@ -58,3 +58,17 @@ def ptcinfos_view(request):
 def crops_view(request):
     crops = Crops.objects.all()    
     return render(request, 'login.html',{"crops": crops})
+
+# 드론 
+def drone(req):
+    
+    return render(req,"drone_control.html")
+
+def history(req):
+    
+    return render(req,"history.html")
+
+
+def analysis(req):
+   
+    return render(req,"analysis.html")
