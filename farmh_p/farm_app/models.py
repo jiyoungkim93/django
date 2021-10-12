@@ -17,6 +17,7 @@ class Comments(models.Model):
         db_table = 'comments'
 
 
+
 class Crops(models.Model):
     f_num = models.AutoField(db_column='F_NUM', primary_key=True)  # Field name made lowercase.
     f_name = models.CharField(db_column='F_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
