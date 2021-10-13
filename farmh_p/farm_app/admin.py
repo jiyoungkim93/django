@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Comments, Crops, Deeplearnings, Dronerunnings, Farmdiaries, Pestinfos, Ptcinfos, Users
-
+from .models import Images
 # Register your models here.
 
 admin.site.register(Comments)
@@ -11,3 +11,5 @@ admin.site.register(Farmdiaries)
 admin.site.register(Pestinfos)
 admin.site.register(Ptcinfos)
 admin.site.register(Users)
+
+admin.site.register(Images)

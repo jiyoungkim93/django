@@ -132,3 +132,8 @@ class Users(models.Model):
     class Meta:
         managed = False
         db_table = 'users'
+
+class Images(models.Model):
+  
+    images = models.ImageField(blank=True)
+

@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+import farm_app
 
 urlpatterns = [
     path("",views.Main,name="main"),
@@ -8,6 +9,9 @@ urlpatterns = [
     
     path("history/",views.history,name="history"),
     path("analysis/",views.analysis,name="analysis"),
+    path('farm_app/upload/',views.upload,name="upload"),
+    path('farm_app/upload_create/',views.upload_create,name="upload_create"),
+    path('farm_app/profile/',views.profile,name="profile"),
 ]
 
 
