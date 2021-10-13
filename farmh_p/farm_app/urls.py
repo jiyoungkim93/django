@@ -9,6 +9,7 @@ urlpatterns = [
     
     path("history/",views.history,name="history"),
     path("analysis/",views.analysis,name="analysis"),
+    path("result/",views.result,name="result"),
     path('farm_app/upload/',views.upload,name="upload"),
     path('farm_app/upload_create/',views.upload_create,name="upload_create"),
     #path('farm_app/profile/',views.profile,name="profile"),

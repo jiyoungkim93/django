@@ -72,7 +72,11 @@ def history(req):
 
 def analysis(req):
     profile=Images.objects.last()
-    return redirect(req,"analysis.html",{"profile":profile})
+    return render(req,"analysis.html",{"profile":profile})
+
+def result(req):
+    profile=Images.objects.last()
+    return render(req,"result.html",{"profile":profile})
 
 def upload(request):
     return render(request,'upload.html')
@@ -83,7 +87,7 @@ def upload_create(req):
     img = Images()
     img.images = req.FILES['images']    
     img.save()
-    return redirect('/analysis')
+    return redirect('/result')
 
     # form = Images(request.POST, request.FILES)
     # form.images=request.FILES['images']
