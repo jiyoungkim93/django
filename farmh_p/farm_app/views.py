@@ -3,7 +3,7 @@
 from django.shortcuts import redirect, render
 #from django.http import HttpResponse
 from .forms import *
-from .models import  Images, Users, Comments, Crops, Deeplearnings, Dronerunnings,Farmdiaries, Pestinfos, Ptcinfos   # 모델 불러오기
+from .models import  Images, Users, Comments, Crops, Deeplearnings, Dronerunnings,Farmdiaries, Pestinfos, Ptcinfos # 모델 불러오기
 from django.http import HttpResponse, request
 # Create your views here.
 
@@ -71,9 +71,8 @@ def history(req):
 
 
 def analysis(req):
-    
-   
-    return render(req,"analysis.html")
+    profile=Images.objects.last()
+    return redirect(req,"analysis.html",{"profile":profile})
 
 def upload(request):
     return render(request,'upload.html')
@@ -81,18 +80,16 @@ def upload(request):
 #이미지업로드
 def upload_create(req):
     
-        img = Images()
-        img.images = req.FILES['images']
-        #upload_create = request.POST[]
-    
-        img.save()
-        return redirect('/analysis')
+    img = Images()
+    img.images = req.FILES['images']    
+    img.save()
+    return redirect('/analysis')
 
     # form = Images(request.POST, request.FILES)
     # form.images=request.FILES['images']
     # form.save()
     # return Images('/farm_app/media/')  
 
-def profile(request):
-    profile=Images.objects.all()
-    return render(request,'profile.html',{'profile':profile})
+#def profile(request):
+#    profile=Images.objects.all()
+#    return render(request,'profile.html',{'profile':profile})

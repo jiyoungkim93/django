@@ -1,7 +1,6 @@
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
-
 # Create your models here.
 
 # 일지작성페이지 텍스트 저장
@@ -13,8 +12,6 @@ from django.utils import timezone
 
 #    def __str__(self):
 #        return self.text
-
-
 
 
 class Comments(models.Model):
@@ -138,4 +135,6 @@ class Images(models.Model):
     images = models.ImageField(null=True,upload_to='images/',blank=True)
 
 
+#class Profile(models.Model):
 
+#    profile = models.p

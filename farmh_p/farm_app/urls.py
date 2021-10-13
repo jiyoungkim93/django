@@ -11,7 +11,7 @@ urlpatterns = [
     path("analysis/",views.analysis,name="analysis"),
     path('farm_app/upload/',views.upload,name="upload"),
     path('farm_app/upload_create/',views.upload_create,name="upload_create"),
-    path('farm_app/profile/',views.profile,name="profile"),
+    #path('farm_app/profile/',views.profile,name="profile"),
 ]
 
 

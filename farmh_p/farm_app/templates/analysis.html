@@ -51,7 +51,7 @@
             
             <input id="cameraFileInput"  type="file" accept="image/*" capture="environment" />
         </label>
-        <img id="pictureFromCamera" style="width: 200px; height: 200px;"/>
+        <img id="pictureFromCamera" style="width: 200px; height: 200px;"src="{{profile.images.url}}"/>
     </div>
     <hr style="margin-top: 5%; margin-bottom: 5%;">
     <div class="analysis_btn">
@@ -61,15 +61,7 @@
 
 
     <script>
-        const url = new URL(window.location.href);
-        
-        console.log(url)
-        const urlParams = url.searchParams;
-        
-        console.log(urlParams.get('img'))
-        
-        const previewImage = document.getElementById("pictureFromCamera")
-        previewImage.src = (urlParams.get('img')
+       
         
 
         function next() {

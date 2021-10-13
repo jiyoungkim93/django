@@ -99,7 +99,7 @@
                 <span>드론 방제 신청</span>
             </a>
         </div>
-         <img id="frame" class="main_btn">
+         
     </div>
     
 
@@ -110,7 +110,7 @@
     let form=document.getElementById("form1")
        
 
-     document.getElementById("images").addEventListener("change", function(){
+     document.getElementById("cam").addEventListener("change", function(){
             form.submit()       
             {% comment %} location.href="{%url 'analysis'%}" {% endcomment %}
         });
