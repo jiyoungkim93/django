@@ -4,6 +4,18 @@ from django.utils import timezone
 
 # Create your models here.
 
+# 일지작성페이지 텍스트 저장
+#text필드 내용/ input태그 식별 name = text
+#diary.html에 있는 td변수명info 확인해서 바꿔주기(text부분)
+class Post(models.Model):
+    title = models.CharField(max_length=50)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
+
+
+
 
 class Comments(models.Model):
     comment_seq = models.AutoField(db_column='COMMENT_SEQ', primary_key=True)  # Field name made lowercase.
