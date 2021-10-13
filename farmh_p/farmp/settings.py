@@ -20,8 +20,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #프로젝트에 이미지 파일이나 데이터 파일을 저장해야 할때
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-MEDIA_ROOT=os.path.join(BASE_DIR, 'farm_app/static') # 미디어 파일이 저장될 경로 설정 
-MEDIA_URL = '/farm_p/farm_app/data/' #각 media 파일에 대한 url 고정값
 
 
 # Quick-start development settings - unsuitable for production
@@ -146,3 +144,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static') # STATIC_URL 밑에 해당 줄 �
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media') # 미디어 파일이 저장될 경로 설정 
+
+MEDIA_URL = '/media/' #각 media 파일에 대한 url 고정값

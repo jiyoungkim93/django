@@ -61,16 +61,15 @@
 
 
     <script>
-
-
-
-        window.onload = document
-            .getElementById("cameraFileInput")
-            .addEventListener("change", function () {
-                document
-                    .getElementById("pictureFromCamera")
-                    .setAttribute("src", window.URL.createObjectURL(this.files[0]));
-            });
+        const url = new URL(window.location.href);
+        
+        console.log(url)
+        const urlParams = url.searchParams;
+        
+        console.log(urlParams.get('img'))
+        
+        const previewImage = document.getElementById("pictureFromCamera")
+        previewImage.src = (urlParams.get('img')
         
 
         function next() {

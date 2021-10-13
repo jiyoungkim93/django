@@ -79,12 +79,15 @@
     <div class="main_bg">
         <h2 title="farm_h"><img src="{%static "portfolio/mainimg.png"%}" style="width: 250px; height: 80px;"></h2>
         <div class="main_inner">
-            <label for="cam">
-            <div class="main_btn">
-                <img src="{%static "portfolio/smart_farm.png"%}" id="main_disease" class="main_img"><br>
-                <span>병충해 판독</span>
-            <input  type="file" id="cam" class="upload-hidden" accept="image/*" capture="camera">
-           
+            <form id="form1" method="POST" action="{% url 'upload_create' %}" enctype="multipart/form-data">   
+            {% csrf_token %} 
+                <label for="cam">
+                <div class="main_btn">
+                    <img src="{%static "portfolio/smart_farm.png"%}" id="main_disease" class="main_img"><br>
+                    <span>병충해 판독</span>
+                <input  type="file" name="images" id="cam" class="upload-hidden" accept="image/*" capture="camera">
+                
+            </form>
             </div>
             </label>
             <a href={%url 'history'%} class="main_btn">
@@ -104,12 +107,14 @@
     <input type="file" accept="image/*;capture=camera"/> -->
 
     <script>
-        {% comment %} document.getElementById("cam").addEventListener("change", function(){
-            
-            location.href={%url 'analysis'%}
-        }); {% endcomment %}
-     function readImage(input) {
+    let form=document.getElementById("form1")
+       
 
+     document.getElementById("cam").addEventListener("change", function(){
+            form.submit()       
+            {% comment %} location.href="{%url 'analysis'%}" {% endcomment %}
+        });
+     {% comment %} function readImage(input) {
     // 인풋 태그에 파일이 있는 경우
     if(input.files && input.files[0]) {
 
@@ -120,9 +125,12 @@
 
         // 이미지가 로드가 된 경우
         reader.onload = e => {
-            const previewImage = document.getElementById("frame")
-            previewImage.src = e.target.result
+
+            //const previewImage = document.getElementById("frame")
+            //previewImage.src = e.target.result
+            
             console.log(e.target.result)
+          
         }
         
         // reader가 이미지 읽도록 하기
@@ -134,8 +142,8 @@
 const inputImage = document.getElementById("cam")
 inputImage.addEventListener("change", e => {
     readImage(e.target)
-    
-})
+     //location.href={%url 'analysis'%}
+}) {% endcomment %}
 
         
 
