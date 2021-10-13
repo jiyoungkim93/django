@@ -1,10 +1,10 @@
 # 작성자 : 김지영
 
 from django.shortcuts import redirect, render
-# from django.http import HttpResponse
-
+#from django.http import HttpResponse
+from .forms import *
 from .models import  Images, Users, Comments, Crops, Deeplearnings, Dronerunnings,Farmdiaries, Pestinfos, Ptcinfos   # 모델 불러오기
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 # Create your views here.
 
 # 메인페이지 출력 / css폴더에 있는 html연결
@@ -71,19 +71,22 @@ def history(req):
 
 
 def analysis(req):
+    
    
     return render(req,"analysis.html")
 
 def upload(request):
     return render(request,'upload.html')
 
+#이미지업로드
 def upload_create(req):
-    if req.method =='POST':
-        form = Images(req.POST)
-        form.images=req.FILES['images']
-        form.save()
-        return redirect("/analysis")
-
+    
+        img = Images()
+        img.images = req.FILES['images']
+        #upload_create = request.POST[]
+    
+        img.save()
+        return redirect('/analysis')
 
     # form = Images(request.POST, request.FILES)
     # form.images=request.FILES['images']
